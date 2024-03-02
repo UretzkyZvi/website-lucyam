@@ -328,7 +328,7 @@ const bodyAnimation: MotionProps = {
 };
 
 function usePrevious<T>(value: T) {
-  let ref = useRef<T>();
+  const ref = useRef<T>();
 
   useEffect(() => {
     ref.current = value;
@@ -338,13 +338,13 @@ function usePrevious<T>(value: T) {
 }
 
 function FeaturesDesktop() {
-  let [changeCount, setChangeCount] = useState(0);
-  let [selectedIndex, setSelectedIndex] = useState(0);
-  let prevIndex = usePrevious(selectedIndex);
-  let isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex;
+  const [changeCount, setChangeCount] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const prevIndex = usePrevious(selectedIndex);
+  const isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex;
 
-  let onChange = useDebouncedCallback(
-    (selectedIndex) => {
+  const onChange = useDebouncedCallback(
+    (selectedIndex:number) => {
       setSelectedIndex(selectedIndex);
       setChangeCount((changeCount) => changeCount + 1);
     },
@@ -420,14 +420,14 @@ function FeaturesDesktop() {
 }
 
 function FeaturesMobile() {
-  let [activeIndex, setActiveIndex] = useState(0);
-  let slideContainerRef = useRef<React.ElementRef<"div">>(null);
-  let slideRefs = useRef<Array<React.ElementRef<"div">>>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const slideContainerRef = useRef<React.ElementRef<"div">>(null);
+  const slideRefs = useRef<Array<React.ElementRef<"div">>>([]);
 
   useEffect(() => {
-    let observer = new window.IntersectionObserver(
+    const observer = new window.IntersectionObserver(
       (entries) => {
-        for (let entry of entries) {
+        for (const entry of entries) {
           if (entry.isIntersecting && entry.target instanceof HTMLDivElement) {
             setActiveIndex(slideRefs.current.indexOf(entry.target));
             break;
@@ -440,7 +440,7 @@ function FeaturesMobile() {
       },
     );
 
-    for (let slide of slideRefs.current) {
+    for (const slide of slideRefs.current) {
       if (slide) {
         observer.observe(slide);
       }

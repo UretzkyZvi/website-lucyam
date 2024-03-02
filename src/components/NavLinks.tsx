@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 
 export function NavLinks() {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  let timeoutRef = useRef<number | null>(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const timeoutRef = useRef<number | null>(null)
 
   return [
     ['Features', '/#features'],
