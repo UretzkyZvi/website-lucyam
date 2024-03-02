@@ -6,8 +6,7 @@ import { Container } from "@/components/Container";
 import { PhoneFrame } from "@/components/PhoneFrame";
 
 import { Button } from "./ui/button";
-import { AppDemo } from "@/components/AppDemo";
-import { LogoDarkBackground } from "./Logo";
+ 
 
 function BackgroundIllustration(props: React.ComponentPropsWithoutRef<"div">) {
   let id = useId();
