@@ -1,3 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    :root {
+      --background: 273 65% 100%;
+      --foreground: 273 53% 0%;
+      --muted: 243 32% 85%;
+      --muted-foreground: 243 14% 25%;
+      --popover: 273 65% 100%;
+      --popover-foreground: 273 53% 0%;
+      --card: 0 0% 99%;
+      --card-foreground: 0 0% 0%;
+      --border: 220 13% 91%;
+      --input: 220 13% 91%;
+      --primary: 193 62.5% 62.35%;
+      --primary-foreground: 273 88% 99%;
+      --secondary: 249.14 70.47% 70.78%;
+      --secondary-foreground: 243 88% 99%;
+      --accent: 338.49 63.1% 67.06%;
+      --accent-foreground: 0 0% 100%;
+      --destructive: 11 97% 25%;
+      --destructive-foreground: 11 97% 85%;
+      --ring: 193 62.5% 62.35%;
+      --radius: 0.5rem;
+    }
+  
+    .dark {
+      --background: 273 31% 0%;
+      --foreground: 273 13% 100%;
+      --muted: 243 32% 15%;
+      --muted-foreground: 243 14% 75%;
+      --popover: 273 31% 0%;
+      --popover-foreground: 273 13% 100%;
+      --card: 0 0% 1%;
+      --card-foreground: 0 0% 100%;
+      --border: 215 27.9% 16.9%;
+      --input: 215 27.9% 16.9%;
+      --primary: 273 88% 39%;
+      --primary-foreground: 273 88% 99%;
+      --secondary: 243 88% 39%;
+      --secondary-foreground: 243 88% 99%;
+      --accent: 303 88% 39%;
+      --accent-foreground: 0 0% 100%;
+      --destructive: 11 97% 55%;
+      --destructive-foreground: 0 0% 100%;
+      --ring: 273 88% 39%;
+    }
+  }
+  
+
+  @keyframes drawPath {
+    from {
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+    }
+    to {
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  .LucyFlow path {
+    animation: drawPath 2s ease forwards;
+  }
+  
+ 

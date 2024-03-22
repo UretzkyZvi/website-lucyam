@@ -28,6 +28,12 @@ import {
   Cloud,
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import LucyHumanoid from "./LucyHumanoid";
+import Image from "next/image";
+import Onboarding from "./lucy-steps/onboarding";
+import PromptIdea from "./lucy-steps/PromptIdea";
+import Building from "./lucy-steps/Building";
+import NewHumanoid from "./lucy-steps/NewHumanoid";
 
 const MotionAppScreenHeader = motion(AppScreen.Header);
 const MotionAppScreenBody = motion(AppScreen.Body);
@@ -344,7 +350,7 @@ function FeaturesDesktop() {
   const isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex;
 
   const onChange = useDebouncedCallback(
-    (selectedIndex:number) => {
+    (selectedIndex: number) => {
       setSelectedIndex(selectedIndex);
       setChangeCount((changeCount) => changeCount + 1);
     },
@@ -376,7 +382,7 @@ function FeaturesDesktop() {
             <div className="relative z-10 flex space-x-2 p-8">
               {feature.icon}
               <h3 className=" text-lg font-semibold text-white">
-                <Tab className="ui-not-focus-visible:outline-none text-left  ">
+                <Tab className="text-left ui-not-focus-visible:outline-none  ">
                   <span className="absolute inset-0 rounded-2xl" />
                   {feature.name}
                 </Tab>
@@ -400,11 +406,12 @@ function FeaturesDesktop() {
                   <Tab.Panel
                     static
                     key={feature.name + changeCount}
-                    className="ui-not-focus-visible:outline-none col-start-1 row-start-1 flex focus:outline-offset-[32px]"
+                    className="col-start-1 row-start-1 flex focus:outline-offset-[32px] ui-not-focus-visible:outline-none"
                   >
                     <AppScreen className="w-full">
- 
-                      <MotionAppScreenBody    {...(true ? { ...bodyAnimation, custom: {} } : {})}>
+                      <MotionAppScreenBody
+                        {...(true ? { ...bodyAnimation, custom: {} } : {})}
+                      >
                         <DetailsScreen feature={feature} />
                       </MotionAppScreenBody>
                     </AppScreen>
@@ -497,19 +504,79 @@ export function PrimaryFeatures() {
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl">
           <h2 className="text-3xl font-medium tracking-tight text-white">
-            Every feature you need to bring Lucy to life, all in one place.
+            What is LucyAM?
           </h2>
           <p className="mt-2 text-lg text-gray-400">
-            LucyAM offers a comprehensive suite of tools and capabilities to
-            empower you to build, deploy, and manage AI/ML projects with ease.
+            LucyAM is a new way to bring your ideas to life without the need to
+            learn complex AI tools or terminology. You are the{" "}
+            <span className="font-bold text-white">domain expert!</span>
+          </p>
+          <p className="mt-2 text-lg text-gray-400">
+            Start with simple steps to bring your own virtual humanoid.
           </p>
         </div>
-      </Container>
-      <div className="mt-16 md:hidden">
-        <FeaturesMobile />
-      </div>
-      <Container className="hidden md:mt-20 md:block">
-        <FeaturesDesktop />
+
+        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 items-center gap-4  pt-4 ">
+          <div className="relative col-span-3">
+            <div className="flex flex-col">
+              <Onboarding />
+              <div>
+                <span className="text-gray-400"> Step 1 - Onboarding</span>
+              </div>
+            </div>
+          </div>
+          <div className="relative col-span-3">
+            <div className="flex flex-col">
+              <PromptIdea />
+              <div>
+                <span className="text-gray-400">Step 2 - Prompt your idea</span>
+              </div>
+            </div>
+          </div>
+          <div className="relative col-span-3">
+            <div className="flex flex-col">
+              <Building />
+
+              <span className="text-gray-400">
+                Step 3 - LucyAM orchestrating
+              </span>
+            </div>
+          </div>
+          <div className="relative col-span-3">
+            <div className="flex flex-col">
+              <NewHumanoid />
+              <span className="text-gray-400">
+                Your newborn humanoid is ready!
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <h2 className="text-3xl font-medium tracking-tight text-white">
+            Next
+          </h2>
+          <p className="mt-2 text-lg text-gray-400">
+            Humanoid is like a baby, it needs to learn and grow.
+            You will need to send it to school, library and playground.
+            But no worries it won't take 18 years. Humanoid will learn in
+            minutes and seconds. <br/>
+            Underline is, you will need to feed it with data. Either from your own
+            or from public "library" a.k.a datasets. <br/>
+            To validate that it's learning, you can test it with some tasks. <br/>
+            Humanoid brain is a.k.a model. Once it's ready, you can deploy it to the world. <br/>
+            It's like sending your kid to college. <br/>         
+          </p>
+        </div>
+        <div className="mt-16">
+          <h2 className="text-3xl font-medium tracking-tight text-white">
+            So what is LucyAM?
+          </h2>
+          <p className="mt-2 text-lg text-gray-400">
+           LucyAM is a platform that provides a comprehensive suite of tools and features to support the end-to-end AI development lifecycle. 
+           From data preparation to model training, deployment, and application building, LucyAM offers a seamless experience for beginner and advanced users alike. 
+          </p>
+        </div>
       </Container>
     </section>
   );

@@ -8,6 +8,9 @@ import { Hero } from '@/components/Hero'
  
 import { Metadata } from 'next';
 import { PrimaryFeatures } from '@/components/PrimaryFeatures';
+import { Integrations } from '@/components/Integrations';
+import { MarketResearch } from '@/components/MarketReasearch';
+import { AboutUs } from '@/components/AboutUs';
 
 export const metadata: Metadata = {
     title: 'Main',
@@ -18,6 +21,9 @@ export default function Home() {
    
       <Hero />
       <PrimaryFeatures />
+      <Integrations />
+      <MarketResearch/>
+      <AboutUs/>
       {/* 
       <PrimaryFeatures />
       <SecondaryFeatures />
