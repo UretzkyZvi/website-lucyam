@@ -13,7 +13,6 @@ export function NavLinks() {
     ['Integrations', '/#integrations'],
     ['Market Research', '/#market-research'],
     ['About Us', '/#about-us'],
-    ['Road Map', '/#road-map'],
     ['Contact', '/#contact'],
   ].map(([label, href], index) => (
     <Link

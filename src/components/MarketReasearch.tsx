@@ -6,7 +6,7 @@ export function MarketResearch() {
     <section
       id="market-research"
       aria-label="Market Research"
-      className="py-20 sm:py-32"
+      className="bg-gradient-to-tl from-[#E55D87]/50 to-[#5FC3E4]/50 py-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl">

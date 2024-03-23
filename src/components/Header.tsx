@@ -9,6 +9,8 @@ import { Logo } from "@/components/Logo";
 import { NavLinks } from "@/components/NavLinks";
 import { ChevronUpIcon, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
+import { ContactDialog } from "./ContactDialog";
 
 function MobileNavLink(
   props: Omit<
@@ -105,13 +107,9 @@ export function Header() {
                             <MobileNavLink href="/#market-research">
                               Market Research
                             </MobileNavLink>
-                            <MobileNavLink href="/#faqs">FAQs</MobileNavLink>
-                          </div>
-                          <div className="mt-8 flex flex-col gap-4">
-                            {/* <Button href="/login" variant="outline">
-                              Log in
-                            </Button>
-                            <Button href="#">Download the app</Button> */}
+                            <MobileNavLink href="/#about-us">
+                              About Us
+                            </MobileNavLink>
                           </div>
                         </Popover.Panel>
                       </>
@@ -120,6 +118,7 @@ export function Header() {
                 </>
               )}
             </Popover>
+            <ContactDialog />
             {/* <Button href="/login" variant="outline" className="hidden lg:block">
               Log in
             </Button>
